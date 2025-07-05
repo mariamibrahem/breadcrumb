@@ -1,4 +1,3 @@
-import React from "react";
 import "./styles.scss";
 import rightArrowIcon from "../../icons/rightArrow.svg";
 
@@ -9,7 +8,7 @@ export interface IBreadCrumbsProps {
   onSecondItemPress?: () => void;
   secondItemText?: string;
   secondItemIcon?: string;
-  showSecondItem: boolean;
+  showSecondItem?: boolean;
   thirdItemText?: string;
   thirdItemIcon?: string;
   showThirdItem?: boolean;
