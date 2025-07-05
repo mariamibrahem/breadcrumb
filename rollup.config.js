@@ -39,10 +39,9 @@ export default {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
     scss({
-      output: false,
-      inject: true,
-      includePaths: ['src/components/'],
-      outputStyle: 'compressed'
+      fileName: 'styles.css',
+      outputStyle: 'compressed',
+      inject: false
     }),
     terser(),
   ],
