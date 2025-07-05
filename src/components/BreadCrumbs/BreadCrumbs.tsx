@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.scss";
-import rightArrowIcon from "../../assets/icons/right-arrow.svg";
+import rightArrowIcon from "../../icons/rightArrow.svg";
 
-interface IBreadCrumbsProps {
+export interface IBreadCrumbsProps {
   onFirstItemPress: () => void;
   firstItemText: string;
   firstItemIcon?: string;

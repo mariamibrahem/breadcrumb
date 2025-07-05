@@ -5,6 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import scss from 'rollup-plugin-scss';
+import image from '@rollup/plugin-image';
 
 export default {
   input: 'src/index.ts',
@@ -24,15 +25,18 @@ export default {
     peerDepsExternal(),
     resolve(),
     commonjs(),
+    image(),
     typescript({
       tsconfig: './tsconfig.json',
       declaration: true,
       declarationDir: 'dist',
+      sourceMap: true,
+      exclude: ['**/*.test.ts', '**/*.test.tsx'],
     }),
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**',
-      presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
     scss({
       output: 'dist/styles.css',
@@ -40,5 +44,5 @@ export default {
     }),
     terser(),
   ],
-  external: ['react', 'react-dom', 'i18next', 'react-i18next'],
+  external: ['react', 'react-dom'],
 }; 

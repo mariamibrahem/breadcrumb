@@ -17,5 +17,5 @@
     "outDir": "dist"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "src/App.js", "src/index.js", "src/reportWebVitals.js"]
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.test.tsx"]
 } 
