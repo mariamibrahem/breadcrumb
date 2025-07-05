@@ -6,7 +6,7 @@ export interface IBreadCrumbsProps {
     onSecondItemPress?: () => void;
     secondItemText?: string;
     secondItemIcon?: string;
-    showSecondItem: boolean;
+    showSecondItem?: boolean;
     thirdItemText?: string;
     thirdItemIcon?: string;
     showThirdItem?: boolean;
