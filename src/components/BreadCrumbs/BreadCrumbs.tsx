@@ -1,5 +1,6 @@
 import "./styles.scss";
 import rightArrowIcon from "../../icons/rightArrow.svg";
+import React from "react";
 
 export interface IBreadCrumbsProps {
   onFirstItemPress: () => void;
@@ -15,19 +16,43 @@ export interface IBreadCrumbsProps {
   onThirdItemPress?: () => void;
 }
 
+// Add inline styles to ensure critical styling works even without CSS
+const inlineStyles = {
+  container: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+  },
+  item: {
+    display: "flex",
+    alignItems: "center",
+    color: "#414651",
+    fontWeight: 600,
+    fontSize: "14px",
+  },
+  pointer: {
+    cursor: "pointer",
+  },
+};
+
 function BreadCrumbs(props: IBreadCrumbsProps) {
   return (
-    <div className="breadcrumbs-container">
-      <div className="breadcrumbs-item">
+    <div className="breadcrumbs-container" style={inlineStyles.container}>
+      <div className="breadcrumbs-item" style={inlineStyles.item}>
         {props.firstItemIcon ? (
           <img
             src={props.firstItemIcon}
             alt="home"
             onClick={props.onFirstItemPress}
             className="pointer"
+            style={inlineStyles.pointer}
           />
         ) : (
-          <span onClick={props.onFirstItemPress} className="pointer">
+          <span
+            onClick={props.onFirstItemPress}
+            className="pointer"
+            style={inlineStyles.pointer}
+          >
             {props.firstItemText}
           </span>
         )}
@@ -36,16 +61,21 @@ function BreadCrumbs(props: IBreadCrumbsProps) {
       {props.showSecondItem && (
         <>
           <img src={rightArrowIcon} alt="right-arrow" />
-          <div className="breadcrumbs-item">
+          <div className="breadcrumbs-item" style={inlineStyles.item}>
             {props.secondItemIcon ? (
               <img
                 src={props.secondItemIcon}
                 alt="second item"
                 onClick={props.onSecondItemPress}
                 className="pointer"
+                style={inlineStyles.pointer}
               />
             ) : (
-              <span onClick={props.onSecondItemPress} className="pointer">
+              <span
+                onClick={props.onSecondItemPress}
+                className="pointer"
+                style={inlineStyles.pointer}
+              >
                 {props.secondItemText}
               </span>
             )}
@@ -56,16 +86,21 @@ function BreadCrumbs(props: IBreadCrumbsProps) {
       {props.showThirdItem && props.showSecondItem && (
         <>
           <img src={rightArrowIcon} alt="right-arrow" />
-          <div className="breadcrumbs-item">
+          <div className="breadcrumbs-item" style={inlineStyles.item}>
             {props.thirdItemIcon ? (
               <img
                 src={props.thirdItemIcon}
                 alt="third item"
                 onClick={props.onThirdItemPress}
                 className="pointer"
+                style={inlineStyles.pointer}
               />
             ) : (
-              <span onClick={props.onThirdItemPress} className="pointer">
+              <span
+                onClick={props.onThirdItemPress}
+                className="pointer"
+                style={inlineStyles.pointer}
+              >
                 {props.thirdItemText}
               </span>
             )}
